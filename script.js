@@ -1,6 +1,6 @@
-// Ripple Button Effect
+// Ripple button effect
 document.querySelectorAll('.ripple-btn').forEach(btn => {
-  btn.addEventListener('click', function (e) {
+  btn.addEventListener('click', function(e) {
     const circle = document.createElement('span');
     const rect = btn.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -15,41 +15,34 @@ document.querySelectorAll('.ripple-btn').forEach(btn => {
   });
 });
 
-// Design Kit Selection
-const kitCards = document.querySelectorAll('.kit-card');
-
-kitCards.forEach(card => {
+// Design kit select
+document.querySelectorAll('.kit-card').forEach(card => {
   card.addEventListener('click', () => {
-    kitCards.forEach(c => {
+    document.querySelectorAll('.kit-card').forEach(c => {
       c.classList.remove('selected');
       c.querySelector('.kit-checkbox').classList.remove('checked');
     });
-
     card.classList.add('selected');
     card.querySelector('.kit-checkbox').classList.add('checked');
   });
 });
 
-// Customer Logo/Text Swapper
-const customers = document.querySelectorAll(".customer");
-
+// Customer swap
+const customers = document.querySelectorAll('.customer');
 setInterval(() => {
   customers.forEach(customer => {
-    const alts = JSON.parse(customer.getAttribute("data-alts"));
+    const alts = JSON.parse(customer.dataset.alts);
     const current = customer.textContent.trim();
     const next = current === alts[0] ? alts[1] : alts[0];
-
     customer.style.opacity = 0;
-
     setTimeout(() => {
       customer.textContent = next;
       customer.style.opacity = 1;
-    }, 700);  // match fade-out duration
+    }, 1000);
   });
-}, 4000);  // slower cycle
+}, 5000);
 
-
-// Chart.js - Interactive Company Visits
+// Chart with sort
 const rawData = [
   { label: 'Brex', value: 1200 },
   { label: 'Remote', value: 1100 },
@@ -61,8 +54,7 @@ const rawData = [
   { label: 'Framer', value: 500 }
 ];
 
-let ascending = false; // Start with descending
-
+let ascending = false;
 const ctx = document.getElementById('companyChart').getContext('2d');
 
 const chartData = {
@@ -84,36 +76,41 @@ const companyChart = new Chart(ctx, {
   data: chartData,
   options: {
     indexAxis: 'y',
-    responsive: true,
     plugins: {
-      legend: { display: false },
-      tooltip: {
-        callbacks: {
-          label: ctx => `${ctx.parsed.x} visits`
-        }
-      }
+      legend: { display: false }
     },
     scales: {
-      x: {
-        beginAtZero: true,
-        grid: { display: false }
-      },
-      y: {
-        grid: { display: false }
-      }
+      x: { beginAtZero: true, grid: { display: false } },
+      y: { grid: { display: false } }
     }
   }
 });
 
 document.getElementById('sortIcon').addEventListener('click', () => {
   ascending = !ascending;
-
   const sorted = [...rawData].sort((a, b) => ascending ? a.value - b.value : b.value - a.value);
-
   companyChart.data.labels = sorted.map(d => d.label);
   companyChart.data.datasets[0].data = sorted.map(d => d.value);
-
   document.getElementById('sortIcon').textContent = ascending ? '↑' : '↓';
-
   companyChart.update();
+});
+
+// Theme toggle
+const toggleButton = document.getElementById('themeToggle');
+
+// Load preference
+if (localStorage.getItem('theme') === 'light') {
+  document.body.classList.add('light-mode');
+  toggleButton.textContent = '🌞';
+}
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+  if (document.body.classList.contains('light-mode')) {
+    toggleButton.textContent = '🌞';
+    localStorage.setItem('theme', 'light');
+  } else {
+    toggleButton.textContent = '🌙';
+    localStorage.setItem('theme', 'dark');
+  }
 });
