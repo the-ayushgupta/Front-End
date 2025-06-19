@@ -5,15 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Parallax & Design Kits</title>
 
-  <!-- Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <section class="hero">
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">DesignUI</div>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#content">Content</a></li>
+        <li><a href="#design-kits">Design Kits</a></li>
+        <li><a href="#customers">Customers</a></li>
+        <li><a href="#chart-section">Chart</a></li>
+      </ul>
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
     <div class="hero-content">
       <h1>Welcome to the Future</h1>
       <p>Experience stunning UI with modern effects.</p>
@@ -21,13 +34,13 @@
     </div>
   </section>
 
-  <!-- Content Section -->
-  <section class="content">
+  <!-- CONTENT -->
+  <section class="content" id="content">
     <h2>Scroll to See Parallax</h2>
   </section>
 
-  <!-- Design Kits Section -->
-  <section class="design-kits">
+  <!-- DESIGN KITS -->
+  <section class="design-kits" id="design-kits">
     <h2>Design Kits</h2>
     <div class="kit-list-row">
       <div class="kit-card">
@@ -51,8 +64,8 @@
     </div>
   </section>
 
-  <!-- Customers Section -->
-  <section class="customers">
+  <!-- CUSTOMERS -->
+  <section class="customers" id="customers">
     <h2>Trusted by teams at</h2>
     <div class="customer-grid">
       <div class="customer" data-alts='["Cursor", "Perplexity"]'>Cursor</div>
@@ -66,8 +79,8 @@
     </div>
   </section>
 
-  <!-- Chart Section -->
-  <section class="chart-section">
+  <!-- CHART -->
+  <section class="chart-section" id="chart-section">
     <h2>Top Company Visitors <span id="sortIcon" class="sort-icon">↓</span></h2>
     <div class="chart-container">
       <canvas id="companyChart"></canvas>
