@@ -1,3 +1,21 @@
+:root {
+  --bg-color: #111;
+  --text-color: #fff;
+  --accent-color: #007bff;
+  --secondary-bg: #1a1a1a;
+  --card-bg: #1e1e1e;
+  --customer-color: #ccc;
+}
+
+.light-mode {
+  --bg-color: #f5f5f5;
+  --text-color: #111;
+  --accent-color: #007bff;
+  --secondary-bg: #ddd;
+  --card-bg: #fff;
+  --customer-color: #333;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,10 +26,66 @@ body, html {
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
   scroll-behavior: smooth;
-  background-color: #111;
-  color: white;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
+/* NAVBAR */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: var(--bg-color);
+  padding: 10px 20px;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.7);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: var(--text-color);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: var(--accent-color);
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+/* HERO */
 .hero {
   height: 100vh;
   background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80');
@@ -40,6 +114,7 @@ body, html {
 .hero-content {
   position: relative;
   z-index: 2;
+  padding: 20px;
 }
 
 .hero h1 {
@@ -57,7 +132,7 @@ body, html {
   padding: 12px 25px;
   font-size: 1em;
   color: white;
-  background: #007BFF;
+  background: var(--accent-color);
   border: none;
   overflow: hidden;
   border-radius: 5px;
@@ -69,19 +144,29 @@ body, html {
   background: #0056b3;
 }
 
+/* CONTENT */
 .content {
   padding: 60px 20px;
   max-width: 800px;
   margin: auto;
   text-align: center;
-  background: #1a1a1a;
+  background: var(--secondary-bg);
 }
 
+.content h2 {
+  margin-bottom: 20px;
+}
+
+/* DESIGN KITS */
 .design-kits {
-  background: #111;
-  color: #fff;
+  background: var(--bg-color);
+  color: var(--text-color);
   padding: 60px 20px;
   text-align: center;
+}
+
+.design-kits h2 {
+  margin-bottom: 30px;
 }
 
 .kit-list-row {
@@ -91,11 +176,12 @@ body, html {
   gap: 20px;
   max-width: 1200px;
   margin: auto;
+  padding-top: 10px;
 }
 
 .kit-card {
   width: 300px;
-  background: #1e1e1e;
+  background: #1e1e1e; /* Fixed for kit design */
   border-radius: 12px;
   padding: 15px 20px;
   display: flex;
@@ -105,6 +191,7 @@ body, html {
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   transition: transform 0.2s ease, border 0.3s ease;
   cursor: pointer;
+  margin: 10px 0;
 }
 
 .kit-card:hover {
@@ -170,69 +257,64 @@ body, html {
   }
 }
 
+/* CUSTOMERS */
 .customers {
-  background: #000;
+  background: var(--bg-color);
   padding: 60px 20px;
   text-align: center;
-  color: #aaa;
+  color: var(--text-color);
 }
 
 .customers h2 {
   font-size: 1.8em;
   margin-bottom: 30px;
-  color: #fff;
 }
 
 .customer-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);  /* exactly 4 columns */
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   max-width: 900px;
   margin: auto;
+  margin-top: 20px;
 }
 
 @media (max-width: 768px) {
   .customer-grid {
-    grid-template-columns: repeat(2, 1fr);  /* 2 columns on smaller screens */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
   .customer-grid {
-    grid-template-columns: 1fr;  /* single column on very small screens */
+    grid-template-columns: 1fr;
   }
 }
-
 
 .customer {
   font-size: 1.2em;
   font-weight: 600;
-  transition: opacity 1s ease;  /* smoother */
-  color: #ccc;
+  transition: opacity 1s ease;
+  color: var(--customer-color);
   opacity: 1;
 }
 
-
+/* CHART SECTION */
 .chart-section {
   padding: 60px 20px;
-  background: #1a1a1a;
-  color: white;
+  background: var(--secondary-bg);
+  color: var(--text-color);
   text-align: center;
+}
+
+.chart-section h2 {
+  margin-bottom: 30px;
 }
 
 .chart-container {
   max-width: 800px;
   margin: auto;
-}
-
-#sortButton {
-  margin-bottom: 10px;
-  padding: 6px 12px;
-  border: none;
-  background: #007bff;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
+  padding-top: 10px;
 }
 
 .sort-icon {
@@ -245,5 +327,5 @@ body, html {
 }
 
 .sort-icon:hover {
-  color: #007bff;
+  color: var(--accent-color);
 }
