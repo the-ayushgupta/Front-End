@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parallax & Design Kits</title>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to the Future</h1>
+      <p>Experience stunning UI with modern effects.</p>
+      <button class="ripple-btn">Explore</button>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content">
+    <h2>Scroll to See Parallax</h2>
+  </section>
+
+  <!-- Design Kits Section -->
+  <section class="design-kits">
+    <h2>Design Kits</h2>
+    <div class="kit-list-row">
+      <div class="kit-card">
+        <div class="kit-checkbox"></div>
+        <div class="kit-icon" style="background-color: #00c49a;"></div>
+        <div class="kit-title">Web Starter Kit</div>
+        <div class="kit-settings">⚙️</div>
+      </div>
+      <div class="kit-card">
+        <div class="kit-checkbox"></div>
+        <div class="kit-icon" style="background-color: #ffb347;"></div>
+        <div class="kit-title">Marketing Kit</div>
+        <div class="kit-settings">⚙️</div>
+      </div>
+      <div class="kit-card">
+        <div class="kit-checkbox"></div>
+        <div class="kit-icon" style="background-color: #ff4c61;"></div>
+        <div class="kit-title">Creative Agency Kit</div>
+        <div class="kit-settings">⚙️</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customers Section -->
+  <section class="customers">
+    <h2>Trusted by teams at</h2>
+    <div class="customer-grid">
+      <div class="customer" data-alts='["Cursor", "Perplexity"]'>Cursor</div>
+      <div class="customer" data-alts='["Brex", "Notion"]'>Brex</div>
+      <div class="customer" data-alts='["Remote", "Linear"]'>Remote</div>
+      <div class="customer" data-alts='["ARC", "Raycast"]'>ARC</div>
+      <div class="customer" data-alts='["Runway", "Superhuman"]'>Runway</div>
+      <div class="customer" data-alts='["Descript", "Loom"]'>Descript</div>
+      <div class="customer" data-alts='["Figma", "Sketch"]'>Figma</div>
+      <div class="customer" data-alts='["Framer", "Webflow"]'>Framer</div>
+    </div>
+  </section>
+
+  <!-- Chart Section -->
+  <section class="chart-section">
+    <h2>Top Company Visitors <span id="sortIcon" class="sort-icon">↓</span></h2>
+    <div class="chart-container">
+      <canvas id="companyChart"></canvas>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
